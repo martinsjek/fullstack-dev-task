@@ -1,0 +1,41 @@
+version: '3.5'
+services:
+  lmt_db:
+    container_name: lmt_db
+    image: postgres:14
+    environment:
+      POSTGRES_USER: lmt
+      POSTGRES_PASSWORD: lmt
+    volumes:
+      - lmt_db_volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      lmt_network:
+  lmt_webserver:
+    container_name: lmt_webserver
+    image: raraworks/dev_stack:php8.1node_lts
+    volumes:
+      - ../src:/var/www/html
+      - ./conf.d:/etc/nginx/conf.d
+      - ./certs:/etc/ssl/private
+    ports:
+      - "80:80"
+      - "443:443"
+      - "5173:80"
+      - "5174:80"
+    depends_on:
+      - lmt_db
+    restart: always
+    networks:
+      lmt_network:
+#    Uncomment two following lines on linux and append with your host main IP to enable Xdebug
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+volumes:
+  lmt_db_volume:
+    name: lmt_db_volume
+networks:
+  lmt_network:
+    name: lmt_network
