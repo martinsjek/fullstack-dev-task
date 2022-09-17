@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="container">
-            <a href="/" class="logo">
+            <a href="/" class="logo" aria-label="Logo">
                 <img src="/images/logo.svg" width="144" height="38" alt="">
             </a>
             <nav>

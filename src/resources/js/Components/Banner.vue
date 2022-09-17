@@ -3,7 +3,7 @@
         <picture>
             <source media="(min-width: 992px)" srcset="/images/banner-desktop.jpg">
             <source media="(max-width: 991px)" srcset="/images/banner-mobile.jpg">
-            <img :width="width >= 992 ? 1440 : 375" :height="width >= 992 ? 400 : 445" src="/images/banner-mobile.jpg"
+            <img :width="width >= 992 ? 1440 : 991" :height="width >= 992 ? 400 : 445" src="/images/banner-mobile.jpg"
                  alt="">
         </picture>
         <div class="container">
@@ -57,7 +57,7 @@ const {width} = useWindowSize()
     h2 {
         font-size: 1.6rem;
         @media (min-width: 992px) {
-            font-size: 3.6rem;
+            font-size: 2.4rem;
         }
     }
 }

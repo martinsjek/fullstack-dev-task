@@ -1,13 +1,13 @@
 <template>
     <header>
         <div class="container">
-            <a href="#" class="burger" @click.prevent="toggleMenu">
+            <a href="#" class="burger" aria-label="Burger menu" @click.prevent="toggleMenu">
                 <SvgIcon name="burger"/>
             </a>
-            <a href="/" class="logo">
+            <a href="/" class="logo" aria-label="Logo">
                 <img src="/images/logo.svg" width="83" height="28" alt="">
             </a>
-            <a href="#" class="user">
+            <a href="#" class="user" aria-label="User">
                 <SvgIcon name="person"/>
             </a>
             <nav :class="{open: menuOpen}">
