@@ -1,0 +1,93 @@
+<template>
+    <section class="contest-form">
+        <div class="container">
+            <h2>Pieteikties konkursam!</h2>
+            <form action="" @submit.prevent="submitForm">
+                <div class="input-wrap">
+                    <label for="name">Vārds, uzvārds</label>
+                    <input type="text" id="name" placeholder="Jānis Bērziņš" v-model.trim="name">
+                </div>
+                <div class="input-wrap">
+                    <label for="email">E-pasta adreses</label>
+                    <input type="email" id="email" placeholder="janis.berzins@gmail.com" v-model.trim="email">
+                </div>
+                <Button tag="button" type="primary" text="Nosūtīt"/>
+            </form>
+        </div>
+    </section>
+</template>
+
+<script setup lang="ts">
+import Button from '../Partials/Button.vue'
+import {ref} from "vue"
+
+const name = ref('')
+const email = ref('')
+
+const submitForm = () => {
+
+}
+</script>
+
+<style lang="scss">
+@import "../../scss/base/colors";
+
+.contest-form {
+    background: $white;
+    padding: 42px 0 80px 0;
+    @media (min-width: 992px) {
+        padding: 70px 0 164px 0;
+    }
+
+    h2 {
+        margin-bottom: 40px;
+        color: $gray;
+        @media (min-width: 992px) {
+            margin-bottom: 70px;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        @media (min-width: 992px) {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+    }
+
+    .input-wrap {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 0 28px 0;
+        @media (min-width: 992px) {
+            margin: 0 20px 0 0;
+            max-width: 360px;
+        }
+    }
+
+    label {
+        margin-bottom: 0.8rem;
+        font-size: 1.4rem;
+        color: $color-input-label;
+    }
+
+    input {
+        padding: 0 24px;
+        height: 56px;
+        background: $lighter-gray;
+        border: 1px solid $color-input-border;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        height: 56px;
+        @media (min-width: 992px) {
+            width: 144px;
+        }
+    }
+}
+</style>

@@ -68,12 +68,22 @@ const categories = [
 @import "../../scss/base/colors";
 
 .categories {
-    padding-bottom: 102px;
+    padding-bottom: 66px;
+    @media (min-width: 992px) {
+        padding-bottom: 102px;
+    }
 
     .container {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 30px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 30px;
+        }
+        @media (min-width: 1200px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 
     a {
@@ -92,10 +102,13 @@ const categories = [
     .icon-wrap {
         width: 51px;
         height: 36px;
-        margin-right: 40px;
+        margin-right: 76px;
         display: flex;
         align-items: center;
         justify-content: center;
+        @media (min-width: 768px) {
+            margin-right: 40px;
+        }
     }
 
     svg {
@@ -109,6 +122,10 @@ const categories = [
     .all {
         background: $light-red;
         justify-content: center;
+        padding: 2.6rem 3.8rem;
+        @media (min-width: 992px) {
+            padding: 2.2rem 3.8rem;
+        }
 
         svg {
             color: $white;

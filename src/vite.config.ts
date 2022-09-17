@@ -13,7 +13,13 @@ export default defineConfig({
         strictPort: true
     },
     plugins: [
-        vue(),
+        vue({
+            template: {
+                transformAssetUrls: {
+                    includeAbsolute: false
+                }
+            }
+        }),
         // basicSsl(),
         createSvgIconsPlugin({
             iconDirs: [path.resolve(process.cwd(), 'resources/svg-sprites')],
@@ -25,5 +31,5 @@ export default defineConfig({
             ],
             refresh: true
         }),
-    ],
+    ]
 });

@@ -53,7 +53,10 @@ const transformSlotProps = (props: { days: number, hours: number, minutes: numbe
 @import "../../scss/base/colors";
 
 .timer {
-    padding: 54px 0 76px 0;
+    padding: 44px 0 36px 0;
+    @media (min-width: 992px) {
+        padding: 54px 0;
+    }
 
     .timer-wrap, .clock {
         display: flex;
@@ -62,14 +65,24 @@ const transformSlotProps = (props: { days: number, hours: number, minutes: numbe
     }
 
     .time-block {
-        width: 48px;
+        width: 58px;
+        text-align: center;
+        @media (min-width: 992px) {
+            text-align: left;
+        }
 
         &.days {
             color: $red;
         }
 
         &:not(:last-child) {
-            margin-right: 88px;
+            margin-right: calc((100vw - 58px * 4) / 4);
+            @media (min-width: 375px) {
+                margin-right: 38px;
+            }
+            @media (min-width: 992px) {
+                margin-right: 88px;
+            }
         }
 
         &:not(:first-child) {
@@ -77,24 +90,38 @@ const transformSlotProps = (props: { days: number, hours: number, minutes: numbe
 
             &:before {
                 content: ':';
-                font-size: 4rem;
+                font-size: 3rem;
                 position: absolute;
-                top: 0;
-                left: -44px;
+                top: -3px;
+                left: -5vw;
                 font-weight: 700;
+                @media (min-width: 375px) {
+                    left: -23px;
+                }
+                @media (min-width: 992px) {
+                    font-size: 4rem;
+                    top: -4px;
+                    left: -46px;
+                }
             }
         }
     }
 
     .number {
-        font-size: 5rem;
+        font-size: 4rem;
         line-height: 0.8;
         font-weight: 700;
+        @media (min-width: 992px) {
+            font-size: 5rem;
+        }
     }
 
     .description {
         font-size: 1.4rem;
-        margin-top: 10px;
+        margin-top: 4px;
+        @media (min-width: 992px) {
+            margin-top: 8px;
+        }
     }
 }
 </style>

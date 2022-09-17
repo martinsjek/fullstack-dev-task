@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                         </div>
-                        <Button tag="a" type="primary" text="Vairāk"/>
+                        <Button tag="a" type="secondary" text="Vairāk"/>
                     </div>
                 </div>
                 <div class="media">
@@ -40,10 +40,10 @@ const newPriceEuros = newPrice.split(',')[0]
 const newPriceCents = newPrice.split(',')[1]
 
 const media = [
-    '/images/offer-media-1.jpg',
-    '/images/offer-media-2.jpg',
-    '/images/offer-media-3.jpg',
-    '/images/offer-media-4.jpg'
+    '/images/offer-media-1.png',
+    '/images/offer-media-2.png',
+    '/images/offer-media-3.png',
+    '/images/offer-media-4.png'
 ]
 </script>
 
@@ -51,23 +51,40 @@ const media = [
 @import "../../scss/base/colors";
 
 .offer {
-    padding-bottom: 93px;
+    padding-bottom: 60px;
+    @media (min-width: 992px) {
+        padding-bottom: 93px;
+    }
 
     h2 {
         color: $white;
         margin-bottom: 40px;
+        text-align: center;
+        @media (min-width: 992px) {
+            text-align: left;
+        }
     }
 
     .offer-block {
-        padding: 35px 79px 41px 69px;
+        padding: 20px 20px 30px 20px;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         background: rgba($gray, 0.5);
         border-radius: 5px;
+        @media (min-width: 992px) {
+            padding: 35px 79px 41px 80px;
+        }
 
         &-left {
-            width: 30%;
-            padding-right: 60px;
+            width: 100%;
+            @media (min-width: 992px) {
+                width: 30%;
+            }
+
+            img {
+                margin: 0 auto;
+            }
         }
 
         &-title {
@@ -75,16 +92,19 @@ const media = [
             margin-bottom: 8px;
             font-weight: 700;
             font-size: 2.6rem;
+            line-height: 1.2;
         }
     }
 
     .offer-block-bottom {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
+        justify-content: center;
+        margin-top: 12px;
     }
 
     .price-wrap {
-        margin-right: 20px;
+        margin-right: 32px;
     }
 
     .old-price {
@@ -103,10 +123,12 @@ const media = [
         .small-wrap {
             display: flex;
             flex-direction: column;
+            font-weight: 700;
         }
 
         .cents {
-            font-size: 3rem;
+            font-size: 3.2rem;
+            padding-top: 6px;
         }
 
         .description {
@@ -114,20 +136,45 @@ const media = [
         }
     }
 
+    .btn {
+        margin-bottom: 6px;
+    }
+
     .media {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 12px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        margin-top: 40px;
+        width: 100%;
+        @media (min-width: 992px) {
+            width: 70%;
+            padding-left: 90px;
+            grid-gap: 12px;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 0;
+        }
 
         img {
             border-radius: 5px;
+            width: 100%;
+
+            &:last-child {
+                display: none;
+                @media (min-width: 992px) {
+                    display: block;
+                }
+            }
         }
     }
 
     .notice {
-        margin-top: 26px;
-        color: $lighter-gray;
-        opacity: 0.5;
+        display: none;
+        @media (min-width: 992px) {
+            display: block;
+            margin-top: 40px;
+            color: $lighter-gray;
+            opacity: 0.5;
+        }
     }
 }
 </style>

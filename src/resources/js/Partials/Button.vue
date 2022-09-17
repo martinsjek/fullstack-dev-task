@@ -26,15 +26,16 @@ const props = defineProps<{
     border: 1px solid $red;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
 
     &-primary {
-        color: $red;
+        background: $red;
+        color: $white;
     }
 
     &-secondary {
-        background: $red;
-        color: $white;
+        color: $red;
     }
 
     svg {
