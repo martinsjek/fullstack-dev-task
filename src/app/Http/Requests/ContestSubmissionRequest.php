@@ -11,7 +11,7 @@ class ContestSubmissionRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', new NumberOfWords(4)],
-            'email' => ['required', 'email', 'unique:contact_submissions']
+            'email' => ['required', 'email', 'unique:contest_submissions']
         ];
     }
 }

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContestSubmission extends Model
 {
-
+    public $fillable = ['name', 'email'];
 }

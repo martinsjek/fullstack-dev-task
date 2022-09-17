@@ -33,6 +33,7 @@ const email = ref('')
 const errors = ref()
 
 const submitForm = () => {
+    errors.value = null
     axios.post('/api/contest-submission', {
         name: name.value,
         email: email.value
