@@ -10,8 +10,8 @@ class ContestSubmissionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', new NumberOfWords(4)],
-            'email' => ['required', 'email', 'unique:contest_submissions']
+            'name' => ['required', 'string', 'max:255', new NumberOfWords(4)],
+            'email' => ['required', 'email', 'max:255', 'unique:contest_submissions']
         ];
     }
 }

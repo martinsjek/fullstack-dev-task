@@ -19,6 +19,7 @@
                 </div>
                 <Button tag="button" type="primary" text="Nosūtīt"/>
             </form>
+            <p class="success-message" v-if="successMessage">{{ successMessage }}</p>
         </div>
     </section>
 </template>
@@ -31,14 +32,16 @@ import axios from "axios"
 const name = ref('')
 const email = ref('')
 const errors = ref()
+const successMessage = ref('')
 
 const submitForm = () => {
     errors.value = null
+    successMessage.value = ''
     axios.post('/api/contest-submission', {
         name: name.value,
         email: email.value
     }).then((response) => {
-        console.log(response)
+        successMessage.value = response.data
     }).catch((error) => {
         if (error.response.status === 422) {
             if (error.response.data.errors) {
@@ -114,9 +117,15 @@ const submitForm = () => {
     .errors {
         color: $red;
         position: absolute;
-        bottom: 0;
+        bottom: -4px;
         left: 0;
         transform: translateY(100%);
+        font-size: 1.4rem;
+    }
+
+    .success-message {
+        color: green;
+        margin-top: 10px;
     }
 }
 </style>

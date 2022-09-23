@@ -14,10 +14,10 @@ class ContestSubmissionController extends Controller
      * @param ContestSubmissionRequest $request
      * @return string
      */
-    public function store(ContestSubmissionRequest $request)
+    public function store(ContestSubmissionRequest $request): string
     {
         $input = $request->all();
         ContestSubmission::create($input);
-        return 'Success';
+        return 'Esi veiksmīgi pieteicies konkursam!';
     }
 }
