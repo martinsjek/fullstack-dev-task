@@ -23,16 +23,15 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "5173:80"
-      - "5174:80"
+      - "5173:5173"
     depends_on:
       - lmt_db
     restart: always
     networks:
       lmt_network:
 #    Uncomment two following lines on linux and append with your host main IP to enable Xdebug
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+#    extra_hosts:
+#      - "host.docker.internal:host-gateway"
 volumes:
   lmt_db_volume:
     name: lmt_db_volume
