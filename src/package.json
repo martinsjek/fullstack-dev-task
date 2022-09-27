@@ -8,16 +8,17 @@
         "@chenfengyuan/vue-countdown": "^2.1.0",
         "@vitejs/plugin-basic-ssl": "^0.1.2",
         "@vitejs/plugin-vue": "^3.1.0",
-        "@vueuse/core": "^9.2.0",
+        "@vueuse/core": "^9.3.0",
         "axios": "^0.27.2",
         "fast-glob": "^3.2.12",
-        "laravel-vite-plugin": "^0.6.0",
+        "laravel-vite-plugin": "^0.6.1",
         "postcss": "^8.4.16",
-        "sass": "^1.54.9",
+        "sass": "^1.55.0",
         "typescript": "^4.8.3",
-        "vite": "^3.1.1",
+        "vite": "^3.1.3",
         "vite-plugin-svg-icons": "^2.0.1",
         "vue": "^3.2.39",
-        "vue-tsc": "^0.40.13"
+        "vue-tsc": "^0.40.13",
+        "vue3-lazyload": "^0.3.6"
     }
 }

@@ -67,9 +67,6 @@ const transformSlotProps = (props: { days: number, hours: number, minutes: numbe
     .time-block {
         width: 58px;
         text-align: center;
-        @media (min-width: 992px) {
-            text-align: left;
-        }
 
         &.days {
             color: $red;

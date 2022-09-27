@@ -5,7 +5,7 @@
             <div class="offer-block">
                 <div class="offer-block-left">
                     <p class="offer-block-title">LMT Viedtelevīzija + HBO filmas un seriāli</p>
-                    <img width="223" height="147" src="/images/device.png" alt="">
+                    <img width="223" height="147" v-lazy="`/images/device.png`" alt="">
                     <div class="offer-block-bottom">
                         <div class="price-wrap">
                             <p class="old-price">Iepriekš {{ oldPrice }}€/mēn</p>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="media">
-                    <img :src="item" width="141" height="200" alt="" v-for="(item) in media" :key="item">
+                    <img src="#" v-lazy="item" width="141" height="200" alt="" v-for="(item) in media" :key="item">
                 </div>
             </div>
             <p class="notice">Akcija 29.11.2019. Piedāvājums attiecas uz noteiktām preču kategorijām. Piedāvājums
@@ -150,8 +150,10 @@ const media = [
             width: 70%;
             padding-left: 90px;
             grid-gap: 12px;
-            grid-template-columns: repeat(4, 1fr);
             margin-top: 0;
+        }
+        @media (min-width: 1080px) {
+            grid-template-columns: repeat(4, 1fr);
         }
 
         img {
@@ -160,7 +162,7 @@ const media = [
 
             &:last-child {
                 display: none;
-                @media (min-width: 992px) {
+                @media (min-width: 1080px) {
                     display: block;
                 }
             }

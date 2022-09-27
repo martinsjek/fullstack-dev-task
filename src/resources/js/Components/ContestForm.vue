@@ -17,9 +17,10 @@
                         <span v-for="(item) in errors.email" :key="item">{{ item }}</span>
                     </p>
                 </div>
-                <Button tag="button" type="primary" text="Nosūtīt"/>
+                <Button tag="button" type="primary" text="Nosūtīt" :loading="loading"/>
             </form>
             <p class="success-message" v-if="successMessage">{{ successMessage }}</p>
+            <p class="global-error-message" v-if="globalErrorMessage">{{ globalErrorMessage }}</p>
         </div>
     </section>
 </template>
@@ -33,21 +34,30 @@ const name = ref('')
 const email = ref('')
 const errors = ref()
 const successMessage = ref('')
+const globalErrorMessage = ref('')
+const loading = ref(false)
 
 const submitForm = () => {
+    loading.value = true
     errors.value = null
     successMessage.value = ''
     axios.post('/api/contest-submission', {
         name: name.value,
         email: email.value
     }).then((response) => {
-        successMessage.value = response.data
+        successMessage.value = response.data.message
     }).catch((error) => {
         if (error.response.status === 422) {
             if (error.response.data.errors) {
                 errors.value = error.response.data.errors
             }
         }
+
+        if (error.response.status === 500) {
+            globalErrorMessage.value = error.response.data.message
+        }
+    }).finally(() => {
+        loading.value = false
     })
 }
 </script>
@@ -83,7 +93,7 @@ const submitForm = () => {
         display: flex;
         flex-direction: column;
         width: 100%;
-        margin: 0 0 28px 0;
+        margin: 0 0 40px 0;
         position: relative;
         @media (min-width: 992px) {
             margin: 0 20px 0 0;
@@ -125,6 +135,11 @@ const submitForm = () => {
 
     .success-message {
         color: green;
+        margin-top: 10px;
+    }
+
+    .global-error-message {
+        color: $red;
         margin-top: 10px;
     }
 }
